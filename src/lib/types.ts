@@ -6,6 +6,7 @@ export type ResponseData<T> = {
   data?: Array<T | null>;
 };
 export type UrlEndpointName = 'Category' | 'Product';
+export type EnvironmentType = "ProductionEnvironment" | "TestEnvironment";
 /**
  * Category
  */
