@@ -36,7 +36,7 @@ export default function ProductList() {
           isLoading: false,
         }))
       });
-  });
+  }, []);
   return (
     <TableList
       cssclasses="dark"

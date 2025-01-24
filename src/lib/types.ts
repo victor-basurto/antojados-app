@@ -3,14 +3,14 @@
 ---------------------------------------------------------*/
 //  (IProduct|ICategory|null) and message (string)
 /**
- * Response data returns response with data { data, message }
+ * ResponseData returns { data, message }
  */
 export type ResponseData<T> = {
   data?: Array<T | null>;
   message: string;
 };
 /**
- * Response data returns ResponseData with message and loading { data, message, isLoading, error }
+ * returns ResponseData along with isLoading and error { data, message, isLoading, error }
  */
 export type ResponseDataWithLoadingAndError<T> = ResponseData<T> & {
   isLoading: boolean;

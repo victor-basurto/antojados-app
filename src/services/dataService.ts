@@ -44,12 +44,12 @@ export async function environmentData<T>(environmentType: EnvironmentType = "Pro
       case "Product":
         return Promise.resolve({
           message: "loaded successfully",
-          data: ProductData
+          data: ProductData satisfies IProduct[]
         } as unknown as T);
       case "Category":
         return Promise.resolve({
           message: "loaded successfully",
-          data: CategoryData
+          data: CategoryData satisfies ICategory[]
         } as unknown as T);
       default:
         throw new Error(`data returned empty: ${fakeErrorMessage}. Endpoint: ${endpoint}`);
