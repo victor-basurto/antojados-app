@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CategoryList from '@/components/category/CategoryList';
+// import CategoryList from '@/components/category/CategoryList';
 import ProductList from "@/components/product/ProductList";
 
 export default function Home() {
@@ -51,7 +51,7 @@ export default function Home() {
           </a>
         </div>
           {/* TODO: Testing only, please update code */}
-          <CategoryList />
+          {/* <CategoryList /> */}
           <ProductList />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">

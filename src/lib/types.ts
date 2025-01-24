@@ -1,15 +1,31 @@
+/*-------------------------------------------------------
+      GLOBAL
+---------------------------------------------------------*/
+//  (IProduct|ICategory|null) and message (string)
 /**
- * Global
+ * Response data returns response with data { data, message }
  */
 export type ResponseData<T> = {
-  message: string;
   data?: Array<T | null>;
+  message: string;
 };
-export type UrlEndpointName = 'Category' | 'Product';
-export type EnvironmentType = "ProductionEnvironment" | "TestEnvironment";
 /**
- * Category
+ * Response data returns ResponseData with message and loading { data, message, isLoading, error }
  */
+export type ResponseDataWithLoadingAndError<T> = ResponseData<T> & {
+  isLoading: boolean;
+  error?: string;
+}
+export type UrlEndpointName = "Category" | "Product";
+export type EnvironmentType = "ProductionEnvironment" | "TestEnvironment";
+export type TableColsOptionType = "key" | "label";
+export type TableColumnsType = Record<TableColsOptionType, string>;
+/*-------------------------------------------------------
+      CATEGORY
+---------------------------------------------------------*/
+/**
+ * ICategory { categoryId, categoryName, products }
+*/
 export type CategoryName = {
   categoryName: string;
 };
@@ -17,17 +33,17 @@ export interface ICategory extends CategoryName {
   categoryId: number;
   products: Array<IProduct | null>;
 }
-/**
- * ProductImage
- */
+/*-------------------------------------------------------
+      PRODUCTIMAGE
+---------------------------------------------------------*/
 export interface IProductImages {
   productImageId: number;
   imageUrl: string;
   isPrimary: boolean;
 }
-/**
- * Product
- */
+/*-------------------------------------------------------
+      PRODUCT
+---------------------------------------------------------*/
 export interface IProduct {
   productId?: number;
   productName?: string;
