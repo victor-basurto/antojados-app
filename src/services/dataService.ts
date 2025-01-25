@@ -1,6 +1,6 @@
 import { UrlEndpointName, EnvironmentType, ResponseData, IProduct, ICategory } from "@/lib/types";
-import ProductData from "@/data/app-products.json";
-import CategoryData from "@/data/categories.json";
+import ProductData from "@/data/products";
+import CategoryData from "@/data/categories";
 
 /**
  * Fetches data from a specified API endpoint.

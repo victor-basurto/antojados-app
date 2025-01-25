@@ -1,4 +1,6 @@
-[
+import { IProduct } from "@/lib/types";
+
+const productData: IProduct[] = [
   {
     "productId": 1,
     "productName": "Gomitas de Fresa",
@@ -132,3 +134,5 @@
     ]
   }
 ]
+
+export default productData;

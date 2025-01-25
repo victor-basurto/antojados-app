@@ -1,4 +1,6 @@
-[
+import { ICategory } from "@/lib/types";
+
+const categoriesData: ICategory[] = [
   {
     "categoryId": 1,
     "categoryName": "Dulces",
@@ -25,3 +27,5 @@
     "products": []
   }
 ]
+
+export default categoriesData;
