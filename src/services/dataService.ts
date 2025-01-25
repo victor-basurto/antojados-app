@@ -1,4 +1,4 @@
-import { UrlEndpointName, EnvironmentType, ResponseData } from "@/lib/types";
+import { UrlEndpointName, EnvironmentType, ResponseData, IProduct, ICategory } from "@/lib/types";
 import ProductData from "@/data/app-products.json";
 import CategoryData from "@/data/categories.json";
 
@@ -22,7 +22,7 @@ export async function fetchData<T>(endpoint: UrlEndpointName): Promise<T> {
     throw err;
   }
 }
-const fakeErrorMessage: ResponseData<any[]> = {
+const fakeErrorMessage: ResponseData<Array<IProduct | ICategory | null>> = {
   message: "",
   data: []
 }
@@ -44,14 +44,14 @@ export async function environmentData<T>(environmentType: EnvironmentType = "Pro
       case "Product":
         return Promise.resolve({
           message: "loaded successfully",
-          data: ProductData
+          data: ProductData satisfies IProduct[]
         } as unknown as T);
       case "Category":
         return Promise.resolve({
           message: "loaded successfully",
-          data: CategoryData
+          data: CategoryData satisfies ICategory[]
         } as unknown as T);
-      default: 
+      default:
         throw new Error(`data returned empty: ${fakeErrorMessage}. Endpoint: ${endpoint}`);
     }
   }
