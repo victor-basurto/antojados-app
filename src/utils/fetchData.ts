@@ -1,5 +1,5 @@
-import { environmentData } from "@/services/dataService";
-import type {  IProduct, ResponseDataWithLoadingAndError } from "@/lib/types";
+import { environmentData } from '@/services/dataService';
+import type { IProduct, ResponseDataWithLoadingAndError } from '@/lib/types';
 /**
  * Fetches product data from the test environment.
  *
@@ -9,15 +9,18 @@ import type {  IProduct, ResponseDataWithLoadingAndError } from "@/lib/types";
  * @returns {Promise<ResponseDataWithLoadingAndError<IProduct>>} A promise that resolves to the fetched product data.
  * @throws {Error} If there's an error during the fetch operation, it logs the error and re-throws it.
  */
-export async function fetchProducts(): Promise<ResponseDataWithLoadingAndError<IProduct>> {
+export async function fetchProducts(): Promise<
+  ResponseDataWithLoadingAndError<IProduct>
+> {
   try {
-    const localProducts: ResponseDataWithLoadingAndError<IProduct> = await environmentData<ResponseDataWithLoadingAndError<IProduct>>(
-      "TestEnvironment",
-      "Product"
-    );
+    const localProducts: ResponseDataWithLoadingAndError<IProduct> =
+      await environmentData<ResponseDataWithLoadingAndError<IProduct>>(
+        'TestEnvironment',
+        'Product'
+      );
     return localProducts;
   } catch (error) {
-    console.error("Error fetching products:", error);
+    console.error('Error fetching products:', error);
     throw error;
   }
 }

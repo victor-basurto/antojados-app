@@ -1,6 +1,12 @@
-import { UrlEndpointName, EnvironmentType, ResponseData, IProduct, ICategory } from "@/lib/types";
-import ProductData from "@/data/products";
-import CategoryData from "@/data/categories";
+import {
+  UrlEndpointName,
+  EnvironmentType,
+  ResponseData,
+  IProduct,
+  ICategory,
+} from '@/lib/types';
+import ProductData from '@/data/products';
+import CategoryData from '@/data/categories';
 
 /**
  * Fetches data from a specified API endpoint.
@@ -12,20 +18,22 @@ import CategoryData from "@/data/categories";
  */
 export async function fetchData<T>(endpoint: UrlEndpointName): Promise<T> {
   try {
-    const response: Response = await fetch(`${process.env.WEBAPI_ENDPOINT}${endpoint}`);
+    const response: Response = await fetch(
+      `${process.env.WEBAPI_ENDPOINT}${endpoint}`
+    );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     return (await response.json()) as T;
   } catch (err) {
-    console.error("Error fetching data:", err);
+    console.error('Error fetching data:', err);
     throw err;
   }
 }
 const fakeErrorMessage: ResponseData<Array<IProduct | ICategory | null>> = {
-  message: "",
-  data: []
-}
+  message: '',
+  data: [],
+};
 /**
  * Retrieves data based on the specified environment type and endpoint.
  *
@@ -38,21 +46,26 @@ const fakeErrorMessage: ResponseData<Array<IProduct | ICategory | null>> = {
  * @returns {Promise<T>} A promise that resolves to the retrieved data.
  * @throws {Error} If an unknown endpoint is provided in "TestEnvironment" mode or if the data fetch fails in "ProductionEnvironment" mode.
  */
-export async function environmentData<T>(environmentType: EnvironmentType = "ProductionEnvironment", endpoint: UrlEndpointName): Promise<T> {
-  if (environmentType === "TestEnvironment") {
-    switch(endpoint) {
-      case "Product":
+export async function environmentData<T>(
+  environmentType: EnvironmentType = 'ProductionEnvironment',
+  endpoint: UrlEndpointName
+): Promise<T> {
+  if (environmentType === 'TestEnvironment') {
+    switch (endpoint) {
+      case 'Product':
         return Promise.resolve({
-          message: "loaded successfully",
-          data: ProductData satisfies IProduct[]
+          message: 'loaded successfully',
+          data: ProductData satisfies IProduct[],
         } as unknown as T);
-      case "Category":
+      case 'Category':
         return Promise.resolve({
-          message: "loaded successfully",
-          data: CategoryData satisfies ICategory[]
+          message: 'loaded successfully',
+          data: CategoryData satisfies ICategory[],
         } as unknown as T);
       default:
-        throw new Error(`data returned empty: ${fakeErrorMessage}. Endpoint: ${endpoint}`);
+        throw new Error(
+          `data returned empty: ${fakeErrorMessage}. Endpoint: ${endpoint}`
+        );
     }
   }
   return await fetchData<T>(endpoint);

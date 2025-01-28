@@ -15,17 +15,17 @@ export type ResponseData<T> = {
 export type ResponseDataWithLoadingAndError<T> = ResponseData<T> & {
   isLoading: boolean;
   error?: string;
-}
-export type UrlEndpointName = "Category" | "Product";
-export type EnvironmentType = "ProductionEnvironment" | "TestEnvironment";
-export type TableColsOptionType = "key" | "label";
+};
+export type UrlEndpointName = 'Category' | 'Product';
+export type EnvironmentType = 'ProductionEnvironment' | 'TestEnvironment';
+export type TableColsOptionType = 'key' | 'label';
 export type TableColumnsType = Record<TableColsOptionType, string>;
 /*-------------------------------------------------------
       CATEGORY
 ---------------------------------------------------------*/
 /**
  * ICategory { categoryId, categoryName, products }
-*/
+ */
 export type CategoryName = {
   categoryName: string;
 };

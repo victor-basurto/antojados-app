@@ -2,20 +2,23 @@
 // import type {  IProduct, ICategory } from "@/lib/types";
 // import { Provider } from "../ui/provider";
 
-export default async function Product({
-  // productId,
-  // productName,
-  // productDescription,
-  // price,
-  // quantity,
-  // isProductAvailable,
-  // productImages,
-  // categories,
-}) {
+export default async function Product(
+  {
+    // productId,
+    // productName,
+    // productDescription,
+    // price,
+    // quantity,
+    // isProductAvailable,
+    // productImages,
+    // categories,
+  }
+) {
   return (
     // <Provider>
-      // <Card.Root maxW="sm" overflow="hidden">
-        {/* <Image
+    // <Card.Root maxW="sm" overflow="hidden">
+    {
+      /* <Image
           src={productImages[0]?.imageUrl}
           alt={productName}
         />
@@ -34,8 +37,9 @@ export default async function Product({
         </Card.Body>
         <Card.Footer>
           <Button variant="ghost">more details</Button>
-        </Card.Footer> */}
-      // </Card.Root>
+        </Card.Footer> */
+    }
+    // </Card.Root>
     // </Provider>
-  )
+  );
 }
