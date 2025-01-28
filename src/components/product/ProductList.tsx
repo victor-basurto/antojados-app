@@ -6,7 +6,9 @@ import type {
   TableColumnsType,
   ResponseDataWithLoadingAndError,
 } from '@/lib/types';
-import UITable from '@/ui/UITable';
+import ProductTable from './ProductTable';
+import ProductCardList from './ProductCardList';
+// import {Card, CardHeader, CardFooter, Image } from "@heroui/react";
 
 export default function ProductList() {
   const [productData, setProductData] = useState({
@@ -42,6 +44,9 @@ export default function ProductList() {
       });
   }, []);
   return (
-    <UITable cssclasses="dark" data={productData} tableHeaders={tableHeaders} />
+    <div>
+      <ProductTable cssclasses="dark" data={productData} tableHeaders={tableHeaders} />
+      <ProductCardList products={productData} />
+    </div>
   );
 }
