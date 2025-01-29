@@ -17,7 +17,7 @@ interface Props<T> {
   tableHeaders: TableColumnsType[];
   cssclasses: string;
 }
-export default function UITable<T>({
+export default function ProductTable<T>({
   data,
   tableHeaders,
   cssclasses,

@@ -11,7 +11,7 @@ const productData: IProduct[] = [
     productImages: [
       {
         productImageId: 2,
-        imageUrl: '/product.png',
+        imageUrl: '/products/gomita-gusano-enchilado.png',
         isPrimary: true,
       },
     ],
@@ -77,7 +77,7 @@ const productData: IProduct[] = [
     productImages: [
       {
         productImageId: 5,
-        imageUrl: '/mazapan.png',
+        imageUrl: '/products/extrme-ositos.jpg',
         isPrimary: true,
       },
     ],
@@ -99,7 +99,7 @@ const productData: IProduct[] = [
     productImages: [
       {
         productImageId: 6,
-        imageUrl: '/pulparindo.png',
+        imageUrl: '/common/product-not-available.png',
         isPrimary: true,
       },
     ],
