@@ -45,7 +45,11 @@ export default function ProductList() {
   }, []);
   return (
     <div>
-      <ProductTable cssclasses="dark" data={productData} tableHeaders={tableHeaders} />
+      <ProductTable
+        cssclasses="dark"
+        data={productData}
+        tableHeaders={tableHeaders}
+      />
       <ProductCardList products={productData} />
     </div>
   );

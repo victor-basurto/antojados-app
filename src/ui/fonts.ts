@@ -15,5 +15,5 @@ export const inter = Inter({
 export const lusitana = Lusitana({
   variable: '--font-lusitana',
   weight: '400',
-  subsets: ['latin']
+  subsets: ['latin'],
 });

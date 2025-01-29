@@ -1,11 +1,6 @@
 import type { Metadata } from 'next';
 import { Providers } from '@/providers/providers';
-import {
-  geistSans,
-  geistMono,
-  inter,
-  lusitana,
-} from '@/ui/fonts'
+import { geistSans, geistMono, inter, lusitana } from '@/ui/fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
