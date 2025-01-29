@@ -10,18 +10,15 @@ import {
 import type {
   TableColumnsType,
   ResponseDataWithLoadingAndError,
+  IProduct,
 } from '@/lib/types';
 
-interface Props<T> {
-  data: ResponseDataWithLoadingAndError<T> | null;
+interface Props {
+  data: ResponseDataWithLoadingAndError<IProduct> | null;
   tableHeaders: TableColumnsType[];
   cssclasses: string;
 }
-export default function ProductTable<T>({
-  data,
-  tableHeaders,
-  cssclasses,
-}: Props<T>) {
+const ProductTable: React.FC<Props> = ({ data, tableHeaders, cssclasses }) => {
   if (data?.isLoading) return <div>Loading...{data.message}</div>;
   if (data?.error) return <div>Error: {data.error}</div>;
   if (!data?.data || data?.data.length === 0)
@@ -41,7 +38,7 @@ export default function ProductTable<T>({
           <TableRow key={idx}>
             {tableHeaders.map((header) => (
               <TableCell className="text-white" key={header.key}>
-                {item && item[header.key as keyof T]?.toString()}
+                {item && item[header.key as keyof IProduct]?.toString()}
               </TableCell>
             ))}
           </TableRow>
@@ -49,4 +46,5 @@ export default function ProductTable<T>({
       </TableBody>
     </Table>
   );
-}
+};
+export default ProductTable;

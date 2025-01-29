@@ -16,7 +16,7 @@ import CategoryData from '@/data/categories';
  * @returns {Promise<T>} A promise that resolves to the fetched data of type T.
  * @throws {Error} If the HTTP request fails or returns a non-OK status.
  */
-export async function fetchData<T>(endpoint: UrlEndpointName): Promise<T> {
+const fetchData = async <T>(endpoint: UrlEndpointName): Promise<T> => {
   try {
     const response: Response = await fetch(
       `${process.env.WEBAPI_ENDPOINT}${endpoint}`
@@ -29,7 +29,7 @@ export async function fetchData<T>(endpoint: UrlEndpointName): Promise<T> {
     console.error('Error fetching data:', err);
     throw err;
   }
-}
+};
 const fakeErrorMessage: ResponseData<Array<IProduct | ICategory | null>> = {
   message: '',
   data: [],
@@ -46,10 +46,10 @@ const fakeErrorMessage: ResponseData<Array<IProduct | ICategory | null>> = {
  * @returns {Promise<T>} A promise that resolves to the retrieved data.
  * @throws {Error} If an unknown endpoint is provided in "TestEnvironment" mode or if the data fetch fails in "ProductionEnvironment" mode.
  */
-export async function environmentData<T>(
+const environmentData = async <T>(
   environmentType: EnvironmentType = 'ProductionEnvironment',
   endpoint: UrlEndpointName
-): Promise<T> {
+): Promise<T> => {
   if (environmentType === 'TestEnvironment') {
     switch (endpoint) {
       case 'Product':
@@ -69,4 +69,5 @@ export async function environmentData<T>(
     }
   }
   return await fetchData<T>(endpoint);
-}
+};
+export { fetchData, environmentData };

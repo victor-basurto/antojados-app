@@ -8,9 +8,7 @@ import type {
 } from '@/lib/types';
 import ProductTable from './ProductTable';
 import ProductCardList from './ProductCardList';
-// import {Card, CardHeader, CardFooter, Image } from "@heroui/react";
-
-export default function ProductList() {
+const ProductList = () => {
   const [productData, setProductData] = useState({
     data: [] as IProduct[],
     message: '',
@@ -53,4 +51,5 @@ export default function ProductList() {
       <ProductCardList products={productData} />
     </div>
   );
-}
+};
+export default ProductList;

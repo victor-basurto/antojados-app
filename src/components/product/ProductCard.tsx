@@ -1,3 +1,4 @@
+'use client';
 import { Card, CardHeader, CardFooter, Image } from '@heroui/react';
 import type { IProduct } from '@/lib/types';
 
@@ -5,7 +6,7 @@ interface Props {
   product: IProduct;
   cssClasses: string;
 }
-export default function ProductCard({ product, cssClasses }: Props) {
+const ProductCard: React.FC<Props> = ({ product, cssClasses }: Props) => {
   const {
     productId,
     productName,
@@ -50,4 +51,5 @@ export default function ProductCard({ product, cssClasses }: Props) {
       </CardFooter>
     </Card>
   );
-}
+};
+export default ProductCard;

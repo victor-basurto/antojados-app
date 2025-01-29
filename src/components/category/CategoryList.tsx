@@ -1,7 +1,7 @@
 import type { ResponseData, ICategory } from '@/lib/types';
 import { environmentData } from '@/services/dataService';
 
-export default async function CategoryList() {
+const CategoryList = async () => {
   let dataMessage = null;
   try {
     // Fetching categories from the API and storing it in the "categories" variable
@@ -37,4 +37,5 @@ export default async function CategoryList() {
     console.error('Error fetching categories:', error);
     return <div>{dataMessage}</div>;
   }
-}
+};
+export default CategoryList;

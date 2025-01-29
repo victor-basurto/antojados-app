@@ -3,9 +3,13 @@
  * @param {number} num
  * @returns bool
  */
-export const isNumber = (num: string | number) =>
-  (typeof num === 'number' || (typeof num === 'string' && num.trim() !== '')) &&
-  !isNaN(num as number);
+export const isNumber = (num: string | number) => {
+  return (
+    (typeof num === 'number' ||
+      (typeof num === 'string' && num.trim() !== '')) &&
+    !isNaN(num as number)
+  );
+};
 /**
  *
  * @param {number} currency

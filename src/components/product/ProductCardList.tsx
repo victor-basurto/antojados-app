@@ -6,7 +6,7 @@ interface Props {
   cssClasses?: string;
 }
 import ProductCard from './ProductCard';
-export default function ProductCardList({ products, cssClasses }: Props) {
+const ProductCardList: React.FC<Props> = ({ products, cssClasses }) => {
   if (products.isLoading) return <div>Loading...{products.message}</div>;
   if (products.error) return <div>Error: {products.error}</div>;
   if (!products.data || products.data.length === 0)
@@ -22,4 +22,5 @@ export default function ProductCardList({ products, cssClasses }: Props) {
       ))}
     </div>
   );
-}
+};
+export default ProductCardList;
