@@ -1,15 +1,18 @@
-import type { ResponseData, ICategory } from "@/lib/types";
-import { environmentData } from "@/services/dataService";
+import type { ResponseData, ICategory } from '@/lib/types';
+import { environmentData } from '@/services/dataService';
 
 export default async function CategoryList() {
   let dataMessage = null;
   try {
     // Fetching categories from the API and storing it in the "categories" variable
-    const localCategories = await environmentData<ResponseData<ICategory>>("TestEnvironment", "Category");
-    
+    const localCategories = await environmentData<ResponseData<ICategory>>(
+      'TestEnvironment',
+      'Category'
+    );
+
     // Fetching categories from the API Database SQL and storing it in the "categories" variable
     // const categories = await environmentData<ResponseData<ICategory>>("ProductionEnvironment", "Category");
-    
+
     // set message to data
     dataMessage = localCategories.message;
     // Logging the fetched categories to the console for debugging purposes
@@ -31,7 +34,7 @@ export default async function CategoryList() {
       </div>
     );
   } catch (error) {
-    console.error("Error fetching categories:", error);
+    console.error('Error fetching categories:', error);
     return <div>{dataMessage}</div>;
   }
 }
