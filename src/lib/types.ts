@@ -1,6 +1,18 @@
 /*-------------------------------------------------------
       GLOBAL
 ---------------------------------------------------------*/
+/**
+ * Global Data
+ * IMenuItem,
+ * IFooterItem,
+ * IConfigData
+ */
+export interface IMenuItem {
+  link?: string;
+  alt?: string;
+  title?: string;
+}
+export type RequestGlobalDataParams = 'Global' | 'NavMenu' | 'FooterMenu';
 //  (IProduct|ICategory|null) and message (string)
 /**
  * ResponseData returns { data, message }
