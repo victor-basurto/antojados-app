@@ -2,10 +2,30 @@
       GLOBAL
 ---------------------------------------------------------*/
 /**
+ * Static Global Data
+ * AllowedBrakPoints - CSS breakpoints name
+ * Breakpoints - breakpoints name and dimmension
+ * SocialLinks - current available social links
+ * IRootDetails - website information
+*/
+export type AllowedBreakPoints = "mobile" | "tablet" | "desktop" | "desktop-lg";
+export type Breakpoints = Partial<Record<AllowedBreakPoints, number>>;
+export type SocialLinks = Record<string, string>;
+export interface IRootDetails {
+  websiteName: string;
+  defaultColorScheme: string;
+  socialLinks: SocialLinks;
+  breakPoints: Breakpoints;
+  contactPhone: string;
+  contactEmail: string;
+  copyrightYear: number;
+  version: string;
+}
+/**
+ * Navigation and Footer Navigation
  * Global Data
  * IMenuItem,
- * IFooterItem,
- * IConfigData
+ * IFooterItem
  */
 export interface IMenuItem {
   link?: string;
@@ -13,7 +33,6 @@ export interface IMenuItem {
   title?: string;
 }
 export type RequestGlobalDataParams = 'Global' | 'NavMenu' | 'FooterMenu';
-//  (IProduct|ICategory|null) and message (string)
 /**
  * ResponseData returns { data, message }
  */
