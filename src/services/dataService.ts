@@ -4,9 +4,12 @@ import {
   ResponseData,
   IProduct,
   ICategory,
+  RequestGlobalDataParams,
+  IMenuItem,
 } from '@/lib/types';
 import ProductData from '@/data/products';
 import CategoryData from '@/data/categories';
+import { menuData } from '@/data/app-data';
 
 /**
  * Fetches data from a specified API endpoint.
@@ -69,4 +72,17 @@ export async function environmentData<T>(
     }
   }
   return await fetchData<T>(endpoint);
+}
+
+
+export async function globalDataService<T>(dataRequestType: RequestGlobalDataParams): Promise<T> {
+  switch (dataRequestType) {
+    case 'NavMenu':
+      return await Promise.resolve({
+        data: menuData satisfies IMenuItem[],
+        message: 'navigation loaded successfully'
+      } as unknown as T);
+    default:
+      throw new Error(`data returned empty: ${fakeErrorMessage}. Requested: ${dataRequestType}`)
+  }
 }
