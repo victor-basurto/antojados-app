@@ -1,6 +1,11 @@
 /*-------------------------------------------------------
       GLOBAL
 ---------------------------------------------------------*/
+export interface IMenuItem {
+  link?: string;
+  alt?: string;
+  title?: string;
+}
 //  (IProduct|ICategory|null) and message (string)
 /**
  * ResponseData returns { data, message }
