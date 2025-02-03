@@ -1,7 +1,8 @@
 import { IRootDetails, IMenuItem } from '@/lib/types';
 
+const websiteName = "Antoja2App";
 const appConfig: IRootDetails = {
-  websiteName: "Antoja2",
+  websiteName,
   version: "1.0.0",
   defaultColorScheme: "light",
   breakPoints: {
@@ -14,13 +15,17 @@ const appConfig: IRootDetails = {
   },
   contactPhone: "1234567890",
   contactEmail: "contact@yourwebsite.com",
-  copyrightYear: new Date().getFullYear(),
+  copyrightYear: `&copy; ${new Date().getFullYear()} ${websiteName}`,
 };
 
 const menuData: IMenuItem[] = [
-  { title: 'Home', alt: 'homepage', link: '/' },
-  { title: 'About', alt: 'about page', link: '/about' },
-  { title: 'Contact', alt: 'contact page', link: '/contact' },
+  { name: 'Home', caption: 'homepage', link: '/' },
+  { name: 'About', caption: 'about page', link: '/about' },
+  { name: 'Contact', caption: 'contact page', link: '/contact' },
 ];
+const footerMenuData: IMenuItem[] = [
+  ...menuData,
+  {name: 'FAQS', caption: 'FAQ\'s', link: '/faqs'}
+]
 
-export { appConfig, menuData };
+export { appConfig, menuData, footerMenuData };

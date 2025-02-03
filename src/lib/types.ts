@@ -18,7 +18,7 @@ export interface IRootDetails {
   breakPoints: Breakpoints;
   contactPhone: string;
   contactEmail: string;
-  copyrightYear: number;
+  copyrightYear: string;
   version: string;
 }
 /**
@@ -29,8 +29,8 @@ export interface IRootDetails {
  */
 export interface IMenuItem {
   link?: string;
-  alt?: string;
-  title?: string;
+  caption?: string;
+  name?: string;
 }
 export type RequestGlobalDataParams = 'Global' | 'NavMenu' | 'FooterMenu';
 /**
