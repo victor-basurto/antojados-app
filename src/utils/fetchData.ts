@@ -14,7 +14,7 @@ import type {
  * @returns {Promise<ResponseDataWithLoadingAndError<IProduct>>} A promise that resolves to the fetched product data.
  * @throws {Error} If there's an error during the fetch operation, it logs the error and re-throws it.
  */
-const fetchProducts = async (): Promise<
+export const fetchProducts = async (): Promise<
   ResponseDataWithLoadingAndError<IProduct>
 > => {
   try {
@@ -28,10 +28,6 @@ const fetchProducts = async (): Promise<
     console.error('Error fetching products:', error);
     throw error;
   }
-<<<<<<< HEAD
-};
-export { fetchProducts };
-=======
 }
 /**
  *
@@ -49,4 +45,3 @@ export async function fetchGlobalData(
     throw error;
   }
 }
->>>>>>> a4313688806356eaff0ed54851322eae189628da

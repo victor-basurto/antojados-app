@@ -49,7 +49,7 @@ const fakeErrorMessage: ResponseData<Array<IProduct | ICategory | null>> = {
  * @returns {Promise<T>} A promise that resolves to the retrieved data.
  * @throws {Error} If an unknown endpoint is provided in "TestEnvironment" mode or if the data fetch fails in "ProductionEnvironment" mode.
  */
-const environmentData = async <T>(
+export const environmentData = async <T>(
   environmentType: EnvironmentType = 'ProductionEnvironment',
   endpoint: UrlEndpointName
 ): Promise<T> => {
@@ -72,10 +72,6 @@ const environmentData = async <T>(
     }
   }
   return await fetchData<T>(endpoint);
-<<<<<<< HEAD
-};
-export { fetchData, environmentData };
-=======
 }
 
 export async function globalDataService<T>(
@@ -93,4 +89,3 @@ export async function globalDataService<T>(
       );
   }
 }
->>>>>>> a4313688806356eaff0ed54851322eae189628da
