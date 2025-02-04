@@ -2,11 +2,13 @@ import Image from 'next/image';
 // import CategoryList from '@/components/category/CategoryList';
 import ProductList from '@/components/product/ProductList';
 import NavigationMenu from '@/components/navigation/NavigationMenu';
+import { appConfig } from '@/data/app-data';
+import FooterMenu from '@/components/navigation/FooterMenu';
 
 export default function Home() {
   return (
     <div className="body-page">
-      <NavigationMenu />
+      <NavigationMenu classNames="main-navigation" />
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
           <Image
@@ -103,7 +105,9 @@ export default function Home() {
             />
             Go to nextjs.org →
           </a>
+          <p>&copy; {appConfig.copyrightYear}</p>
         </footer>
+        <FooterMenu />
       </div>
     </div>
   );

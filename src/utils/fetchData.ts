@@ -28,7 +28,7 @@ export const fetchProducts = async (): Promise<
     console.error('Error fetching products:', error);
     throw error;
   }
-}
+};
 /**
  *
  * @returns

@@ -1,11 +1,18 @@
+import React from 'react';
 import { IMenuItem } from '@/lib/types';
 import { Link } from '@heroui/react';
 import { NavbarItem } from '@heroui/navbar';
 
-const MenuItem: React.FC<IMenuItem> = ({ link, name, caption }) => {
+const MenuItem: React.FC<IMenuItem> = ({ link, name, caption, classNames }) => {
   return (
     <NavbarItem>
-      <Link color="secondary" href={link} title={caption} aria-current="page">
+      <Link
+        className={classNames}
+        color="secondary"
+        href={link}
+        title={caption}
+        aria-current="page"
+      >
         {name}
       </Link>
     </NavbarItem>

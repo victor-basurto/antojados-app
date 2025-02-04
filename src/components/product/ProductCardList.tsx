@@ -1,11 +1,12 @@
 'use client';
+import React from 'react';
 import type { IProduct, ResponseDataWithLoadingAndError } from '@/lib/types';
+import ProductCard from './ProductCard';
 // import UICardList from '@/ui/UICard';
 interface Props {
   products: ResponseDataWithLoadingAndError<IProduct>;
   cssClasses?: string;
 }
-import ProductCard from './ProductCard';
 const ProductCardList: React.FC<Props> = ({ products, cssClasses }) => {
   if (products.isLoading) return <div>Loading...{products.message}</div>;
   if (products.error) return <div>Error: {products.error}</div>;

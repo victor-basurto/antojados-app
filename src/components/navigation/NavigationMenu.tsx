@@ -1,16 +1,18 @@
 'use client';
-import { useEffect, useState } from 'react';
-import { Navbar, NavbarBrand, NavbarContent } from '@heroui/react';
+import React, { useEffect, useState } from 'react';
+import { Navbar, NavbarBrand, NavbarContent, Image } from '@heroui/react';
 import { fetchGlobalData } from '@/utils/fetchData';
-import MenuItem from './MenuItem';
+import { appConfig } from '@/data/app-data';
 import { IMenuItem, ResponseDataWithLoadingAndError } from '@/lib/types';
-const NavigationMenu = () => {
+import MenuItem from './MenuItem';
+
+const NavigationMenu = ({ classNames }: { classNames: string }) => {
   const [menuData, setMenuData] = useState({
     data: [] as IMenuItem[],
     isLoading: true,
     message: '',
     error: '',
-  } satisfies ResponseDataWithLoadingAndError<IMenuItem>);
+  } as ResponseDataWithLoadingAndError<IMenuItem>);
   useEffect(() => {
     fetchGlobalData('NavMenu')
       .then(({ data, message }: ResponseDataWithLoadingAndError<IMenuItem>) => {
@@ -18,31 +20,41 @@ const NavigationMenu = () => {
           data: data as IMenuItem[],
           message: message,
           error: '',
-          isLoading: true,
+          isLoading: false,
         });
       })
       .catch((error: unknown) => {
         setMenuData((prev) => ({
           ...prev,
           error: `Error fetching products: ${error}`,
-          isLoading: true,
+          isLoading: false,
         }));
       });
   }, []);
+  if (!menuData.data) return;
+  if (menuData.isLoading) return <div>Loading...{menuData.message}</div>;
+  if (menuData.error) return <div>Error: {menuData.error}</div>;
+  if (!menuData.data || menuData.data.length === 0)
+    return <div>No data available</div>;
   return (
-    <Navbar>
+    <Navbar className={classNames}>
       <NavbarBrand>
         {/* TODO: add logo */}
-        {/* <AcmeLogo /> */}
-        <p className="font-bold text-inherit">Website Name placeholder</p>
+        <Image
+          alt={`${appConfig.websiteName} logo`}
+          src={'/clean-logo.svg'}
+          width={200}
+          className="logo px-4"
+        />
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        {menuData.data.map((menuItem: IMenuItem, idx: number) => (
+        {menuData.data.map((item: IMenuItem | null, idx: number) => (
           <MenuItem
             key={idx}
-            title={menuItem.title}
-            alt={menuItem.alt}
-            link={menuItem.link}
+            name={item?.name}
+            caption={item?.caption}
+            link={item?.link}
+            classNames="menu-item"
           />
         ))}
       </NavbarContent>

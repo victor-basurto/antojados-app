@@ -12,9 +12,9 @@ const ProductList = () => {
   const [productData, setProductData] = useState({
     data: [] as IProduct[],
     message: '',
-    isLoading: false,
+    isLoading: true,
     error: '',
-  } satisfies ResponseDataWithLoadingAndError<IProduct>);
+  } as ResponseDataWithLoadingAndError<IProduct>);
   const tableHeaders: TableColumnsType[] = [
     { key: 'productId', label: 'ID' },
     { key: 'productName', label: 'NAME' },

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Providers } from '@/providers/providers';
 import { geistSans, geistMono, inter, lusitana } from '@/ui/fonts';
 import './globals.css';
+import React from 'react';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark text-foreground bg-background">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${lusitana.variable} antialiased`}
       >

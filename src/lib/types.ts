@@ -3,10 +3,10 @@
 ---------------------------------------------------------*/
 /**
  * Static Global Data
-*/
-// AllowedBrakPoints - CSS breakpoints name
-export type AllowedBreakPoints = "mobile" | "tablet" | "desktop" | "desktop-lg";
-// Breakpoints - breakpoints name and dimmension
+ */
+// AllowedBreakPoints - CSS breakpoints name
+export type AllowedBreakPoints = 'mobile' | 'tablet' | 'desktop' | 'desktop-lg';
+// Breakpoints - breakpoints name and dimension
 export type Breakpoints = Partial<Record<AllowedBreakPoints, number>>;
 // SocialLinks - current available social links
 export type SocialLinks = Record<string, string>;
@@ -25,7 +25,10 @@ export interface IRootDetails {
  * Navigation and Footer Navigation
  * IMenuItem,
  */
-export interface IMenuItem {
+export type ClassNames = {
+  classNames?: string;
+};
+export interface IMenuItem extends ClassNames {
   link?: string;
   caption?: string;
   name?: string;
