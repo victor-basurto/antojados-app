@@ -1,5 +1,10 @@
-import { environmentData } from '@/services/dataService';
-import type { IProduct, ResponseDataWithLoadingAndError } from '@/lib/types';
+import { environmentData, globalDataService } from '@/services/dataService';
+import type {
+  IMenuItem,
+  IProduct,
+  ResponseDataWithLoadingAndError,
+  RequestGlobalDataParams,
+} from '@/lib/types';
 /**
  * Fetches product data from the test environment.
  *
@@ -23,5 +28,25 @@ const fetchProducts = async (): Promise<
     console.error('Error fetching products:', error);
     throw error;
   }
+<<<<<<< HEAD
 };
 export { fetchProducts };
+=======
+}
+/**
+ *
+ * @returns
+ */
+export async function fetchGlobalData(
+  typeDataRequest: RequestGlobalDataParams
+): Promise<ResponseDataWithLoadingAndError<IMenuItem>> {
+  try {
+    const localNavigationMenu: ResponseDataWithLoadingAndError<IMenuItem> =
+      await globalDataService(typeDataRequest);
+    return localNavigationMenu;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    throw error;
+  }
+}
+>>>>>>> a4313688806356eaff0ed54851322eae189628da
