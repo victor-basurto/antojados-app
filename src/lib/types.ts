@@ -3,14 +3,14 @@
 ---------------------------------------------------------*/
 /**
  * Static Global Data
- * AllowedBrakPoints - CSS breakpoints name
- * Breakpoints - breakpoints name and dimmension
- * SocialLinks - current available social links
- * IRootDetails - website information
 */
+// AllowedBrakPoints - CSS breakpoints name
 export type AllowedBreakPoints = "mobile" | "tablet" | "desktop" | "desktop-lg";
+// Breakpoints - breakpoints name and dimmension
 export type Breakpoints = Partial<Record<AllowedBreakPoints, number>>;
+// SocialLinks - current available social links
 export type SocialLinks = Record<string, string>;
+// IRootDetails - website information
 export interface IRootDetails {
   websiteName: string;
   defaultColorScheme: string;
@@ -23,9 +23,7 @@ export interface IRootDetails {
 }
 /**
  * Navigation and Footer Navigation
- * Global Data
  * IMenuItem,
- * IFooterItem
  */
 export interface IMenuItem {
   link?: string;
