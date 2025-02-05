@@ -1,3 +1,4 @@
+import { IconType } from 'react-icons/lib';
 /*-------------------------------------------------------
       GLOBAL
 ---------------------------------------------------------*/
@@ -8,13 +9,17 @@
 export type AllowedBreakPoints = 'mobile' | 'tablet' | 'desktop' | 'desktop-lg';
 // Breakpoints - breakpoints name and dimension
 export type Breakpoints = Partial<Record<AllowedBreakPoints, number>>;
-// SocialLinks - current available social links
-export type SocialLinks = Record<string, string>;
+// SocialLinks - current social links
+export type SocialLinks = {
+  title?: string;
+  url?: string;
+  icon?: IconType;
+};
 // IRootDetails - website information
 export interface IRootDetails {
   websiteName: string;
   defaultColorScheme: string;
-  socialLinks: SocialLinks;
+  socialLinks: SocialLinks[];
   breakPoints: Breakpoints;
   contactPhone: string;
   contactEmail: string;

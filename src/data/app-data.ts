@@ -1,6 +1,15 @@
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaTiktok,
+  FaWhatsapp,
+} from 'react-icons/fa';
 import { IRootDetails, IMenuItem } from '@/lib/types';
 
+// website name
 const websiteName = 'Antoja2App';
+// website configuration
 const appConfig: IRootDetails = {
   websiteName,
   version: '1.0.0',
@@ -9,10 +18,33 @@ const appConfig: IRootDetails = {
     mobile: 768,
     tablet: 1024,
   },
-  socialLinks: {
-    twitter: 'https://twitter.com/yourhandle',
-    github: 'https://github.com/yourhandle',
-  },
+  socialLinks: [
+    {
+      title: 'facebook',
+      url: 'https://facebook.com/yourhandle',
+      icon: FaFacebookF,
+    },
+    {
+      title: 'instagram',
+      url: 'https://github.com/yourhandle',
+      icon: FaInstagram,
+    },
+    {
+      title: 'tiktok',
+      url: 'https://github.com/yourhandle',
+      icon: FaTiktok,
+    },
+    {
+      title: 'whatsapp',
+      url: 'https://github.com/yourhandle',
+      icon: FaWhatsapp,
+    },
+    {
+      title: 'youtube',
+      url: 'https://github.com/yourhandle',
+      icon: FaYoutube,
+    },
+  ],
   contactPhone: '1234567890',
   contactEmail: 'contact@yourwebsite.com',
   copyrightYear: `${new Date().getFullYear()} ${websiteName}`,

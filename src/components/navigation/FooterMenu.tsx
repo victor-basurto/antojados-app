@@ -7,6 +7,7 @@ import {
   IMenuItem,
   ResponseDataWithLoadingAndError,
   ClassNames,
+  SocialLinks,
 } from '@/lib/types';
 
 const FooterMenu: React.FC = ({ classNames }: ClassNames) => {
@@ -39,7 +40,7 @@ const FooterMenu: React.FC = ({ classNames }: ClassNames) => {
   if (!footerData.data || footerData.data.length === 0)
     return <div>No data available</div>;
   return (
-    <footer className="max-w-[90%]">
+    <footer className="block max-w-[90%]">
       <ul className="nav justify-center border-b border-gray-900 pb-3 mb-3">
         <li className="nav-item">
           {footerData.data.map((item: IMenuItem | null, idx: number) => (
@@ -56,10 +57,20 @@ const FooterMenu: React.FC = ({ classNames }: ClassNames) => {
           ))}
         </li>
       </ul>
-      <div className="social-container">{appConfig.socialLinks.twitter}</div>
-      <span className="absolute right-0 bottom-0 text-white underline">
+      <div className="social-container flex items-center justify-between">
+        {appConfig.socialLinks.map((socialLink: SocialLinks, idx: number) => (
+          <a
+            key={idx}
+            href={socialLink.url}
+            className="flex flex-col items-center justify-center"
+          >
+            {socialLink.icon && <socialLink.icon title={socialLink.title} />}
+          </a>
+        ))}
+      </div>
+      {/* <span className="absolute right-0 bottom-0 text-white underline">
         {appConfig.version}
-      </span>
+      </span> */}
     </footer>
   );
 };
