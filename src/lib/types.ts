@@ -18,6 +18,7 @@ export type SocialLinks = {
 // IRootDetails - website information
 export interface IRootDetails {
   websiteName: string;
+  websiteLogo: string;
   defaultColorScheme: string;
   socialLinks: SocialLinks[];
   breakPoints: Breakpoints;

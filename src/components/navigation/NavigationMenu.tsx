@@ -42,7 +42,7 @@ const NavigationMenu = ({ classNames }: { classNames: string }) => {
         {/* TODO: add logo */}
         <Image
           alt={`${appConfig.websiteName} logo`}
-          src={'/clean-logo.svg'}
+          src={appConfig.websiteLogo}
           width={200}
           className="logo px-4"
         />
