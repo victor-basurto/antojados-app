@@ -30,8 +30,11 @@ export const fetchProducts = async (): Promise<
   }
 };
 /**
+ * Fetches Global Data from Config
  *
- * @returns
+ * @param {RequestGlobalDataParams} typeDataRequest - 'Global' | 'NavMenu' | 'FooterMenu'
+ * @returns Promise<ResponseDataWithLoadingAndError<IMenuItem>>
+ * @throws {Error} If there's an error during the fetch operation, it logs the error and re-throws it.
  */
 export async function fetchGlobalData(
   typeDataRequest: RequestGlobalDataParams

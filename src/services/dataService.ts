@@ -73,7 +73,15 @@ export const environmentData = async <T>(
   }
   return await fetchData<T>(endpoint);
 };
-
+/**
+ * Retrieves data from requested param
+ *
+ * if 'NavMenu' -> returns NavMenu data
+ * if 'FooterMenu' -> returns FooterMenu data
+ * @template T - The expected type of the response data.
+ * @param {RequestGlobalDataParams} dataRequestType 'Global' | 'NavMenu' | 'FooterMenu'
+ * @returns {Promise<T>}
+ */
 export async function globalDataService<T>(
   dataRequestType: RequestGlobalDataParams
 ): Promise<T> {

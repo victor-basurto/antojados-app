@@ -57,7 +57,7 @@ const menuData: IMenuItem[] = [
 ];
 const footerMenuData: IMenuItem[] = [
   ...menuData,
-  { name: 'FAQS', caption: "FAQ's", link: '/faqs' },
+  { name: 'FAQs', caption: "FAQ's", link: '/faqs' },
 ];
 
 export { appConfig, menuData, footerMenuData };

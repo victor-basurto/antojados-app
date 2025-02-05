@@ -11,9 +11,10 @@ export const isNumber = (num: string | number) => {
   );
 };
 /**
- *
- * @param {number} currency
- * @returns
+ * Format number to us-dlls
+ * @param {number} currency - desired amount to be converted
+ * @example formatCurrency(40) => `$40.00dlls`
+ * @returns string | undefined
  */
 export const formatCurrency = (currency: number) => {
   if (!isNumber(currency)) return;
