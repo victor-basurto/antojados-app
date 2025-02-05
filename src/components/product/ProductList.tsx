@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchProducts } from '@/utils/fetchData';
 import type {
   IProduct,
@@ -8,7 +8,7 @@ import type {
 } from '@/lib/types';
 import ProductTable from './ProductTable';
 import ProductCardList from './ProductCardList';
-const ProductList = () => {
+const ProductList: React.FC = () => {
   const [productData, setProductData] = useState({
     data: [] as IProduct[],
     message: '',
@@ -44,7 +44,7 @@ const ProductList = () => {
   return (
     <div>
       <ProductTable
-        cssclasses="dark"
+        classNames="dark"
         data={productData}
         tableHeaders={tableHeaders}
       />
