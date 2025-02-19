@@ -10,7 +10,7 @@ import {
   SocialLinks,
 } from '@/lib/types';
 
-const FooterMenu: React.FC = ({ classNames }: ClassNames) => {
+const FooterMenu: React.FC<ClassNames> = ({ classNames }) => {
   const [footerData, setFooterData] = useState({
     data: [] as IMenuItem[],
     isLoading: true,

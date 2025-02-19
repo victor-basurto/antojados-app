@@ -12,6 +12,7 @@ const websiteName = 'Antoja2App';
 // website configuration
 const appConfig: IRootDetails = {
   websiteName,
+  websiteLogo: '/antoja2logito.jpg',
   version: '1.0.0',
   defaultColorScheme: 'light',
   breakPoints: {
@@ -25,7 +26,7 @@ const appConfig: IRootDetails = {
       icon: FaFacebookF,
     },
     {
-      title: 'instagram',
+      title: '@AD_ANTOJA2',
       url: 'https://github.com/yourhandle',
       icon: FaInstagram,
     },

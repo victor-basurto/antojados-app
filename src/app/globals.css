@@ -19,7 +19,3 @@ body {
   /* background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
 }
-.logo {
-  filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0) brightness(200%)
-    contrast(49%);
-}

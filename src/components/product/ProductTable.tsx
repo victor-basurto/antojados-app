@@ -11,14 +11,14 @@ import type {
   TableColumnsType,
   ResponseDataWithLoadingAndError,
   IProduct,
+  ClassNames,
 } from '@/lib/types';
 
-interface Props {
+interface Props extends ClassNames {
   data: ResponseDataWithLoadingAndError<IProduct> | null;
   tableHeaders: TableColumnsType[];
-  cssclasses: string;
 }
-const ProductTable: React.FC<Props> = ({ data, tableHeaders, cssclasses }) => {
+const ProductTable: React.FC<Props> = ({ data, tableHeaders, classNames }) => {
   if (data?.isLoading) return <div>Loading...{data.message}</div>;
   if (data?.error) return <div>Error: {data.error}</div>;
   if (!data?.data || data?.data.length === 0)
@@ -26,7 +26,7 @@ const ProductTable: React.FC<Props> = ({ data, tableHeaders, cssclasses }) => {
   return (
     <Table
       aria-label="Table Info - Update to dynamic string"
-      className={cssclasses}
+      className={classNames}
     >
       <TableHeader>
         {tableHeaders.map((thead: TableColumnsType) => (

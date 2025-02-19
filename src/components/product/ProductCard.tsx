@@ -1,12 +1,11 @@
 'use client';
 import { Card, CardHeader, CardFooter, Image } from '@heroui/react';
-import type { IProduct } from '@/lib/types';
+import type { ClassNames, IProduct } from '@/lib/types';
 
-interface Props {
+interface Props extends ClassNames {
   product: IProduct;
-  cssClasses: string;
 }
-const ProductCard: React.FC<Props> = ({ product, cssClasses }: Props) => {
+const ProductCard: React.FC<Props> = ({ product, classNames }: Props) => {
   const {
     productId,
     productName,
@@ -20,7 +19,7 @@ const ProductCard: React.FC<Props> = ({ product, cssClasses }: Props) => {
   return (
     <Card
       isFooterBlurred
-      className={`w-full h-[300px] ${cssClasses}`}
+      className={`w-full h-[300px] ${classNames}`}
       isPressable
       shadow="sm"
       onPress={() => console.log('pressed')}

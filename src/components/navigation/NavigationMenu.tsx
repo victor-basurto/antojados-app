@@ -3,10 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { Navbar, NavbarBrand, NavbarContent, Image } from '@heroui/react';
 import { fetchGlobalData } from '@/utils/fetchData';
 import { appConfig } from '@/data/app-data';
-import { IMenuItem, ResponseDataWithLoadingAndError } from '@/lib/types';
+import {
+  IMenuItem,
+  ResponseDataWithLoadingAndError,
+  ClassNames,
+} from '@/lib/types';
 import MenuItem from './MenuItem';
 
-const NavigationMenu = ({ classNames }: { classNames: string }) => {
+const NavigationMenu: React.FC<ClassNames> = ({ classNames }) => {
   const [menuData, setMenuData] = useState({
     data: [] as IMenuItem[],
     isLoading: true,
@@ -42,7 +46,7 @@ const NavigationMenu = ({ classNames }: { classNames: string }) => {
         {/* TODO: add logo */}
         <Image
           alt={`${appConfig.websiteName} logo`}
-          src={'/clean-logo.svg'}
+          src={appConfig.websiteLogo}
           width={200}
           className="logo px-4"
         />
