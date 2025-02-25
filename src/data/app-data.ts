@@ -27,22 +27,22 @@ const appConfig: IRootDetails = {
     },
     {
       title: '@AD_ANTOJA2',
-      url: 'https://github.com/yourhandle',
+      url: 'https://twitter.com/yourhandle',
       icon: FaInstagram,
     },
     {
       title: 'tiktok',
-      url: 'https://github.com/yourhandle',
+      url: 'https://tiktok.com/yourhandle',
       icon: FaTiktok,
     },
     {
       title: 'whatsapp',
-      url: 'https://github.com/yourhandle',
+      url: 'https://whatsapp.com/yourhandle',
       icon: FaWhatsapp,
     },
     {
       title: 'youtube',
-      url: 'https://github.com/yourhandle',
+      url: 'https://youtube.com/yourhandle',
       icon: FaYoutube,
     },
   ],

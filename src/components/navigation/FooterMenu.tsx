@@ -40,37 +40,33 @@ const FooterMenu: React.FC<ClassNames> = ({ classNames }) => {
   if (!footerData.data || footerData.data.length === 0)
     return <div>No data available</div>;
   return (
-    <footer className="block max-w-[90%]">
-      <ul className="nav justify-center border-b border-gray-900 pb-3 mb-3">
-        <li className="nav-item">
-          {footerData.data.map((item: IMenuItem | null, idx: number) => (
-            <Link
-              key={idx}
-              className={classNames}
-              color="secondary"
-              href={item?.link}
-              title={item?.caption}
-              aria-current="page"
-            >
-              {item?.name}
-            </Link>
-          ))}
-        </li>
-      </ul>
-      <div className="social-container flex items-center justify-between">
+    <footer className="w-full max-w-[90%] mx-auto flex gap-2 flex-wrap items-center justify-center flex-col">
+      <div className="nav flex gap-12 justify-center border-b border-gray-900 pb-3 mb-3">
+        {footerData.data.map((item: IMenuItem | null, idx: number) => (
+          <Link
+            key={idx}
+            className={classNames}
+            color="secondary"
+            href={item?.link}
+            title={item?.caption}
+            aria-current="page"
+          >
+            {item?.name}
+          </Link>
+        ))}
+      </div>
+      <div className="social-container flex items-center justify-between gap-8">
         {appConfig.socialLinks.map((socialLink: SocialLinks, idx: number) => (
           <a
             key={idx}
             href={socialLink.url}
-            className="flex flex-col items-center justify-center"
+            className="flex flex-col items-center justify-center text-xl"
           >
             {socialLink.icon && <socialLink.icon title={socialLink.title} />}
           </a>
         ))}
       </div>
-      {/* <span className="absolute right-0 bottom-0 text-white underline">
-        {appConfig.version}
-      </span> */}
+      <div className="mt-6 text-xs">&copy; {appConfig.copyrightYear}</div>
     </footer>
   );
 };

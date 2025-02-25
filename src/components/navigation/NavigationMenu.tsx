@@ -58,7 +58,7 @@ const NavigationMenu: React.FC<ClassNames> = ({ classNames }) => {
             name={item?.name}
             caption={item?.caption}
             link={item?.link}
-            classNames="menu-item"
+            classNames="menu-item flex items-center gap-2 text-white hover:text-white hover:opacity-100"
           />
         ))}
       </NavbarContent>
