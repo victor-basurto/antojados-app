@@ -16,7 +16,9 @@ export default function Home() {
         </main>
         <FooterMenu classNames="flex items-center gap-2 hover:underline hover:underline-offset-4 text-white hover:text-white hover:opacity-100" />
       </div>
-      <span className="absolute right-[1rem] bottom-0 text-white text-[10px] font-thin">VERSION: {appConfig.version}</span>
+      <span className="absolute right-[1rem] bottom-0 text-white text-[10px] font-thin">
+        VERSION: {appConfig.version}
+      </span>
     </div>
   );
 }

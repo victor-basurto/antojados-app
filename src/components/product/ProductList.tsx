@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { CiGrid42, CiViewTable } from "react-icons/ci";
+import { CiGrid42, CiViewTable } from 'react-icons/ci';
 import { fetchProducts } from '@/utils/fetchData';
 import type {
   IProduct,
@@ -49,19 +49,23 @@ const ProductList: React.FC = () => {
         <div className="icons flex w-[35px] justify-between items-center my-4">
           {/* if clicked in table -> display <ProductTable /> else <ProductCardList /> */}
           <button onClick={() => setView('table')} aria-label="table view">
-            <CiViewTable className={view === 'table' ? 'active' : ''} size={24} />
+            <CiViewTable
+              className={view === 'table' ? 'active' : ''}
+              size={24}
+            />
           </button>
           <button onClick={() => setView('grid')} aria-label="grid view">
             <CiGrid42 className={view === 'grid' ? 'active' : ''} size={24} />
           </button>
         </div>
       </div>
-      { view === 'table' ? (
+      {view === 'table' ? (
         <ProductTable
-        classNames="dark"
-        data={productData}
-        tableHeaders={tableHeaders}
-      />) : (
+          classNames="dark"
+          data={productData}
+          tableHeaders={tableHeaders}
+        />
+      ) : (
         <ProductCardList products={productData} />
       )}
     </div>
